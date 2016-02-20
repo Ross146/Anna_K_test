@@ -1,0 +1,28 @@
+// Fonts mixin
+font-url(file)
+  return '../fonts/' + file
+
+webfont(family, file, hack-chrome-windows = false, weight = 'normal')
+  @font-face
+    font-family family
+    src url(font-url(file + '.eot'))
+    src url(font-url(file + '.eot?#iefix')) format('embedded-opentype'),
+        url(font-url(file + '.woff')) format('woff'), 
+        url(font-url(file + '.ttf')) format('truetype'), 
+        url(font-url(file + '.svg#'+ family)) format('svg')
+    font-weight weight
+    font-style normal
+  if hack-chrome-windows
+    @media screen and (-webkit-min-device-pixel-ratio:0)
+      @font-face
+        font-family family
+        src url(font-url(file + '.svg#'+ family)) format('svg')
+
+//webfont('RobotoBold', 'RobotoBold/RobotoBold', false, 'normal')
+webfont('CodeProLight', 'CodeProLight/CodeProLight', false, 'normal')
+webfont('MuseoSans900', 'MuseoSans/MuseoSansBlack/MuseoSansBlack', false, 'normal')
+webfont('MuseoSans700', 'MuseoSans/MuseoSansBold/MuseoSansBold', false, 'normal')
+webfont('MuseoSans500', 'MuseoSans/MuseoSansMedium/MuseoSansMedium', false, 'normal')
+webfont('MuseoSans300', 'MuseoSans/MuseoSansRegular/MuseoSansRegular', false, 'normal')
+webfont('MuseoSans100', 'MuseoSans/MuseoSansLight/MuseoSansLight', false, 'normal')
+webfont('PlayfairDisplayItalic', 'PlayfairDisplay/PlayfairDisplayItalic/PlayfairDisplayItalic', false, 'normal')

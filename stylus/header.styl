@@ -1,0 +1,55 @@
+@import "nib";
+@import "/import/_var.styl";
+
+body
+  font-size: 15px;
+  min-width: 320px
+  position: relative
+  line-height: 25 * $px_em
+  overflow-x: hidden
+  color: $light-black-color
+  font-family: MuseoSans100, sans-serif;
+  font-weight: normal
+  letter-spacing 0.07em
+h1
+  font-size: 45 * $px_em
+  
+h3
+  font-size: 22 * $px_em
+
+
+.section-head
+  padding: 115px 115px 80px
+  width 100%
+  min-height: 1100px
+  background-color: #f6f6f6
+  clearfix();
+  .left-section
+    float: left;
+    padding-top: 100px
+    margin-right 110px
+    text-align center
+    img
+      width: 520px
+  .right-section
+    max-width: 750px
+    overflow auto;
+    .section-header
+      display inline-block;
+      padding-left: 70px;
+      text-transform uppercase;
+      text-align center
+      letter-spacing 1em
+      margin-bottom 110px;
+      white-space nowrap
+      color $black-color
+      h3
+        font-family: MuseoSans300, sans-serif
+        font-weight: normal
+      h1
+        font-family: CodeProLight, sans-serif
+        font-weight: normal
+        
+    .section-content
+      .desc
+        margin-bottom 50px
