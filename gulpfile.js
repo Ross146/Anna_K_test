@@ -4,8 +4,9 @@ var gulp = require('gulp'),
     livereload = require('gulp-livereload'),
     connect = require('gulp-connect'),
     sourcemaps =require('gulp-sourcemaps'),
-    fontFace = require('stylus-font-face');
-
+    fontFace = require('stylus-font-face'),
+    minifyCss = require('gulp-minify-css'),
+    rename = require("gulp-rename");
 
 // server connect
 
@@ -13,7 +14,7 @@ gulp.task('connect', function() {
   connect.server({
     root: ['./app'],
     livereload: true,
-    port: 8889
+    port: 8888
   });
 });
 
@@ -21,12 +22,14 @@ gulp.task('connect', function() {
 
 gulp.task('stylus', function() {
   gulp.src('./stylus/*.styl')
+  .pipe(rename({suffix: '.min', prefix : ''}))
   .pipe(sourcemaps.init())
   .pipe(stylus({
   	compress: false,
     sourcemaps: { inline: true },
   	use:[nib()]
   }))
+  .pipe(minifyCss({compatibility: 'ie8'}))
   .pipe(sourcemaps.write())
   .pipe(gulp.dest('./app/css/'))
 });
